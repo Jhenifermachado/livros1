@@ -1,5 +1,4 @@
 <script setup>
-import FooterComp from "@/components/Template/FooterComp.vue";
 import HeaderComp from "@/components/Template/HeaderComp.vue";
 </script>
 
@@ -8,7 +7,6 @@ import HeaderComp from "@/components/Template/HeaderComp.vue";
   <main>
     <RouterView />
   </main>
-  <FooterComp />
 </template>
 
 <style>

@@ -7,12 +7,10 @@ export default {
         {
           id: "c63f9ed0-5077-4dc3-9b9d-268f3fd714f4",
           livros: "Eu e Esse Meu Coração",
-          categorias: "",
-          paginas: "",
+          paginas: "210",
         },
       ],
       novo_livro: "",
-      novo_categorias: "",
       novo_paginas: "",
     };
   },
@@ -22,7 +20,6 @@ export default {
       this.livros.push({
         id: novo_id,
         livros: this.novo_livros,
-        categorias: this.novo_categorias,
         paginas: this.novo_paginas,
       });
     },
@@ -43,18 +40,17 @@ export default {
           v-model="novo_livros"
           @keydown.enter="salvar"
         />
-        <input type="text" placeholder="categorias" v-model="novo_categorias" />
         <input type="text" placeholder="paginas" v-model="novo_paginas" />
         <button @click="salvar">Salvar</button>
       </div>
-      <div class="list-categorias">
+      <div class="list-paginas">
         <table>
           <thead>
             <tr>
               <th>ID</th>
               <th>Livros</th>
-              <th>categorias</th>
               <th>paginas</th>
+              <th></th>
             </tr>
           </thead>
 
@@ -62,9 +58,8 @@ export default {
             <tr v-for="livro in livros" :key="livro.id">
               <td>{{ livro.id }}</td>
               <td>{{ livro.livros }}</td>
-              <td>{{ livro.categorias }}</td>
               <td>{{ livro.paginas }}</td>
-              <td>???</td>
+              <td></td>
             </tr>
           </tbody>
         </table>
@@ -73,9 +68,61 @@ export default {
   </main>
 </template>
 
-<style> 
+<style>
 .title {
   text-align: center;
   margin: 2rem 0;
 }
 
+.form-input {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.form-input input {
+  width: 50%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.form-input button {
+  padding: 00.5rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(6, 103, 40);
+  color: #fff;
+  font-weight: bold;
+  margin-left: 1%;
+}
+
+.list-paginas {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  border: 1px solid black;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+table thead {
+  background-color: rgb(255, 105, 180);
+  color: whitesmoke;
+  font-size: bold;
+}
+
+table thead th {
+  background-color: rgb(255, 105, 180);
+  color: whitesmoke;
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: violet;
+}
+</style>

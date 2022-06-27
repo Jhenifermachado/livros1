@@ -1,3 +1,3 @@
 <template>
-  <main>Bem Vindo</main>
+  <main>oi</main>
 </template>
