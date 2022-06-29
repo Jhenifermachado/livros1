@@ -6,19 +6,19 @@ export default {
       categorias: [
         {
           id: "bc79618d-dd80-456d-a11d-f9c14db9eebf",
-          categorias: "Romance",
+          descricao: "Romance",
         },
       ],
-      novo_categorias: "",
+      novo_categoria: "",
     };
   },
   methods: {
     salvar() {
-      if (this.novo_categorias !== "") {
+      if (this.novo_categoria !== "") {
         const novo_id = uuidv4();
         this.categorias.push({
           id: novo_id,
-          categorias: this.novo_categorias,
+          descricao: this.novo_categoria,
         });
       }
     },
@@ -36,7 +36,7 @@ export default {
       <h2>Categorias</h2>
     </div>
     <div class="form-input">
-      <input type="text" v-model="novo_categorias" @keydown.enter="salvar" />
+      <input type="text" v-model="novo_categoria" @keydown.enter="salvar" />
       <button @click="salvar">Salvar</button>
     </div>
     <div class="list-categorias">
@@ -44,12 +44,19 @@ export default {
         <thead>
           <tr>
             <th>ID</th>
-            <th>Categorias</th>
+            <th>Descrição</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="categorias in categoria" :key="categorias.id"></tr>
+          <tr v-for="categoria in categorias" :key="categoria.id">
+            <td>{{ categoria.id }}</td>
+            <td>{{ categoria.descricao }}</td>
+            <td>
+              <button>Editar</button>
+              <button @click="excluir(categorias)">excluir</button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

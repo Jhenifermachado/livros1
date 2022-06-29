@@ -6,12 +6,20 @@ export default {
       livros: [
         {
           id: "c63f9ed0-5077-4dc3-9b9d-268f3fd714f4",
-          livros: "Eu e Esse Meu Coração",
-          paginas: "210",
+          titulo: "Eu e Esse Meu Coração",
+          isbn: "2022006254",
+          categoria_id: "1",
+          editora_id: "2",
+          quantidade: "100",
+          preco: "R$ 40,00",
         },
       ],
       novo_livro: "",
-      novo_paginas: "",
+      novo_isbn: "",
+      novo_categoria_id: "",
+      novo_editora_id: "",
+      novo_quantidade: "",
+      novo_preco: "",
     };
   },
   methods: {
@@ -19,8 +27,12 @@ export default {
       const novo_id = uuidv4();
       this.livros.push({
         id: novo_id,
-        livros: this.novo_livros,
-        paginas: this.novo_paginas,
+        titulo: this.novo_livros,
+        isbn: this.novo_isbn,
+        categoria_id: this.novo_categoria_id,
+        editora_id: this.novo_editora_id,
+        quantidade: this.novo_quantidade,
+        preco: this.novo_preco,
       });
     },
   },
@@ -36,29 +48,44 @@ export default {
       <div class="form-input">
         <input
           type="text"
-          placeholder="livros"
+          placeholder="Titulo"
           v-model="novo_livros"
           @keydown.enter="salvar"
         />
-        <input type="text" placeholder="paginas" v-model="novo_paginas" />
+        <input type="text" placeholder="ISBN" v-model="novo_isbn" />
+        <input
+          type="text"
+          placeholder="Categoria_id"
+          v-model="novo_categoria_id"
+        />
+        <input type="text" placeholder="Editora_id" v-model="novo_editora_id" />
+        <input type="text" placeholder="Quantidade" v-model="novo_quantidade" />
+        <input type="text" placeholder="Preço" v-model="novo_preco" />
         <button @click="salvar">Salvar</button>
       </div>
-      <div class="list-paginas">
+      <div class="list-livros">
         <table>
           <thead>
             <tr>
               <th>ID</th>
-              <th>Livros</th>
-              <th>paginas</th>
-              <th></th>
+              <th>Titulo</th>
+              <th>ISBN</th>
+              <th>Categoria_id</th>
+              <th>Editora_id</th>
+              <th>quantidade</th>
+              <th>Preço</th>
             </tr>
           </thead>
 
           <tbody>
             <tr v-for="livro in livros" :key="livro.id">
               <td>{{ livro.id }}</td>
-              <td>{{ livro.livros }}</td>
-              <td>{{ livro.paginas }}</td>
+              <td>{{ livro.titulo }}</td>
+              <td>{{ livro.isbn }}</td>
+              <td>{{ livro.categoria_id }}</td>
+              <td>{{ livro.editora_id }}</td>
+              <td>{{ livro.quantidade }}</td>
+              <td>{{ livro.preco }}</td>
               <td></td>
             </tr>
           </tbody>
@@ -88,7 +115,7 @@ export default {
 }
 
 .form-input button {
-  padding: 00.5rem;
+  padding: 0.5rem;
   border: 1px solid black;
   border-radius: 10px;
   background-color: rgb(6, 103, 40);
@@ -97,7 +124,7 @@ export default {
   margin-left: 1%;
 }
 
-.list-paginas {
+.list-livros {
   display: flex;
   justify-content: center;
 }
