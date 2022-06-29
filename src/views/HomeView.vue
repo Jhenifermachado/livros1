@@ -1,3 +1,3 @@
 <template>
-  <main>oi</main>
+  <main>BEM VINDOS A NOSSA LIVRARIA</main>
 </template>

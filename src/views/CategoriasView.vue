@@ -55,3 +55,62 @@ export default {
     </div>
   </div>
 </template>
+<style>
+.title {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.form-input {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.form-input input {
+  width: 50%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.form-input button {
+  padding: 0.5rem;
+  width: 15%;
+  border: 1px solid violet;
+  border-radius: 10px;
+  background-color: violet;
+  color: white;
+  font-weight: bold;
+  margin-left: 1px;
+}
+
+.list-categorias {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 50%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  border: 1px solid black;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+table thead {
+  background-color: rgb(255, 105, 150);
+  color: whitesmoke;
+  font-size: bold;
+}
+
+table thead th {
+  background-color: rgb(255, 105, 150);
+  color: whitesmoke;
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: violet;
+}
+</style>
