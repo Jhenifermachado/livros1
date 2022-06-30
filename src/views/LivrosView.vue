@@ -74,6 +74,7 @@ export default {
               <th>Editora_id</th>
               <th>quantidade</th>
               <th>Preço</th>
+              <th></th>
             </tr>
           </thead>
 

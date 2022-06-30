@@ -37,7 +37,7 @@ export default {
     </div>
     <div class="form-input">
       <input type="text" v-model="novo_editora" @keydown.enter="salvar" />
-      <button @click="salvar"></button>
+      <button @click="salvar">Salvar</button>
     </div>
     <div class="list-editoras">
       <table>
@@ -56,7 +56,7 @@ export default {
             <td>{{ editora.site }}</td>
             <td>
               <button>Editar</button>
-              <button @click="excluir">excluir</button>
+              <button @click="excluir(editora)">excluir</button>
             </td>
           </tr>
         </tbody>
