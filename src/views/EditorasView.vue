@@ -24,7 +24,7 @@ export default {
       }
     },
     excluir(editora) {
-      const indice = this.editoras.index0f(editora);
+      const indice = this.editoras.indexOf(editora);
       this.editoras.splice(indice, 1);
     },
   },
@@ -36,7 +36,13 @@ export default {
       <h2>Editoras</h2>
     </div>
     <div class="form-input">
-      <input type="text" v-model="novo_editora" @keydown.enter="salvar" />
+      <input
+        type="text"
+        placeholder="Nome"
+        v-model="novo_editora"
+        @keydown.enter="salvar"
+      />
+      <input type="text" placeholder="Site" v-model="novo_editora_id" />
       <button @click="salvar">Salvar</button>
     </div>
     <div class="list-editoras">
@@ -77,7 +83,7 @@ export default {
 }
 
 .form-input input {
-  width: 50%;
+  width: 200%;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 10px;
