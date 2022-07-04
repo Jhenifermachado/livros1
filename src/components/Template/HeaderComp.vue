@@ -17,7 +17,6 @@ Template
 <style>
 header {
   height: 30%;
-  background-color: #21a300cc;
   color: rgb(255, 255, 255);
   font-size: 1.3rem;
   display: flex;

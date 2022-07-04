@@ -106,8 +106,8 @@ table {
   text-align: center;
 }
 table thead {
-  background-color: rgb(21, 190, 6);
-  color: rgb(38, 189, 0);
+  background-color: rgb(35, 239, 17);
+  color: rgb(54, 255, 4);
   font-size: bold;
 }
 table thead th {

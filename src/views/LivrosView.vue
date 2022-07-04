@@ -100,6 +100,7 @@ export default {
 .title {
   text-align: center;
   margin: 2rem 0;
+  color: rgb(255, 255, 255);
 }
 
 .form-input {
