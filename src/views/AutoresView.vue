@@ -99,7 +99,7 @@ export default {
 }
 table {
   width: 800%;
-  border-collapse:separate;
+  border-collapse: separate;
   margin: 0 auto;
   border: 1px solid rgb(49, 185, 8);
   font-size: 1.3rem;
@@ -118,8 +118,12 @@ table tbody tr:nth-child(odd) {
   background-color: rgb(125, 223, 86);
 }
 body {
-    background: rgb(0,22,36);
-background: linear-gradient(176deg, rgba(0,22,36,1) 0%, rgba(9,121,29,1) 35%, rgba(69,255,0,1) 100%);
+  background: rgb(0, 22, 36);
+  background: linear-gradient(
+    176deg,
+    rgba(0, 22, 36, 1) 0%,
+    rgba(9, 121, 29, 1) 35%,
+    rgba(69, 255, 0, 1) 100%
+  );
 }
 </style>
-

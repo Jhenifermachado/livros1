@@ -74,7 +74,6 @@ export default {
               <th>Editora_id</th>
               <th>quantidade</th>
               <th>Preço</th>
-              
             </tr>
           </thead>
 
@@ -87,7 +86,6 @@ export default {
               <td>{{ livro.editora_id }}</td>
               <td>{{ livro.quantidade }}</td>
               <td>{{ livro.preco }}</td>
-              
             </tr>
           </tbody>
         </table>

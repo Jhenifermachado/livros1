@@ -11,6 +11,7 @@ export default {
         },
       ],
       novo_editora: "",
+      novo_site: "",
     };
   },
   methods: {
@@ -20,6 +21,7 @@ export default {
         this.editoras.push({
           id: novo_id,
           nome: this.novo_editora,
+          site: this.novo_site,
         });
       }
     },
@@ -42,7 +44,12 @@ export default {
         v-model="novo_editora"
         @keydown.enter="salvar"
       />
-      <input type="text" placeholder="Site" v-model="novo_editora_id" />
+      <input
+        type="text"
+        placeholder="site"
+        v-model="novo_site"
+        @keydown.enter="salvar"
+      />
       <button @click="salvar">Salvar</button>
     </div>
     <div class="list-editoras">
