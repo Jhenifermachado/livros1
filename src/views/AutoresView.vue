@@ -1,27 +1,31 @@
 <script>
-import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 export default {
   data() {
     return {
-      autores: [
-        { id: "0888117a-25c4-40b0-b96c-0daeb8c946fb", nome: "Stephen King" },
-      ],
+      autores: [],
       novo_autor: "",
     };
   },
+  async created() {
+    const autores = await axios.get("http://localhost:4000/autores");
+    this.autores = autores.data;
+  },
   methods: {
-    salvar() {
-      if (this.novo_autor !== "") {
-        const novo_id = uuidv4();
-        this.autores.push({
-          id: novo_id,
-          nome: this.novo_autor,
-        });
-      }
+    async salvar() {
+      const autor = {
+        nome: this.novo_autor,
+      };
+      const autor_criado = await axios.post(
+        "http://localhost:4000/autores",
+        autor
+      );
+      this.autores.push(autor_criado.data);
     },
-    excluir(autor) {
+    async excluir(autor) {
+      await axios.delete(`http://localhost:4000/autores/${autor.id}`);
       const indice = this.autores.indexOf(autor);
-      this.autores.splice(indice, 1);
+      this.categorias.splice(indice, 1);
     },
   },
 };

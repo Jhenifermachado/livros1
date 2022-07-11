@@ -1,29 +1,30 @@
 <script>
-import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 export default {
   data() {
     return {
-      categorias: [
-        {
-          id: "bc79618d-dd80-456d-a11d-f9c14db9eebf",
-          descricao: "Romance",
-        },
-      ],
+      categorias: [],
       novo_categoria: "",
     };
   },
+  async created() {
+    const categorias = await axios.get("http://localhost:4000/categorias");
+    this.categorias = categorias.data;
+  },
   methods: {
-    salvar() {
-      if (this.novo_categoria !== "") {
-        const novo_id = uuidv4();
-        this.categorias.push({
-          id: novo_id,
-          descricao: this.novo_categoria,
-        });
-      }
+    async salvar() {
+      const categoria = {
+        nome: this.novo_categoria,
+      };
+      const categoria_criado = await axios.post(
+        "http://localhost:4000/categorias",
+        categoria
+      );
+      this.categorias.push(categoria_criado.data);
     },
-    excluir(categorias) {
-      const indice = this.categorias.indexOf(categorias);
+    async excluir(categoria) {
+      await axios.delete(`http://localhost:4000/categorias/${categoria.id}`);
+      const indice = this.categorias.indexOf(categoria);
       this.categorias.splice(indice, 1);
     },
   },
@@ -56,10 +57,10 @@ export default {
         <tbody>
           <tr v-for="categoria in categorias" :key="categoria.id">
             <td>{{ categoria.id }}</td>
-            <td>{{ categoria.descricao }}</td>
+            <td>{{ categoria.nome }}</td>
             <td>
               <button>Editar</button>
-              <button @click="excluir(categorias)">excluir</button>
+              <button @click="excluir(categoria)">excluir</button>
             </td>
           </tr>
         </tbody>
