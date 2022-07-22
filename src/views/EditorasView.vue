@@ -1,31 +1,29 @@
 <script>
-import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 export default {
   data() {
     return {
-      editoras: [
-        {
-          id: "53f2873b-892c-4cc6-b30f-de269626e9d2",
-          nome: "Globo Livros",
-          site: "http://globolivros.globo.com/",
-        },
-      ],
+      editoras: [],
       novo_editora: "",
-      novo_site: "",
     };
   },
+  async created() {
+    const editoras = await axios.get("http://localhost:4000/editoras");
+    this.editoras = editoras.data;
+  },
   methods: {
-    salvar() {
-      if (this.novo_editora !== "") {
-        const novo_id = uuidv4();
-        this.editoras.push({
-          id: novo_id,
-          nome: this.novo_editora,
-          site: this.novo_site,
-        });
-      }
+    async salvar() {
+      const editora = {
+        nome: this.novo_editora,
+      };
+      const editora_criado = await axios.post(
+        "http://localhost:4000/editoras",
+        editora
+      );
+      this.editoras.push(editora_criado.data);
     },
-    excluir(editora) {
+    async excluir(editora) {
+      await axios.delete(`http://localhost:4000/editoras/${editora.id}`);
       const indice = this.editoras.indexOf(editora);
       this.editoras.splice(indice, 1);
     },
@@ -69,7 +67,7 @@ export default {
             <td>{{ editora.site }}</td>
             <td>
               <button>Editar</button>
-              <button @click="excluir(editora)">excluir</button>
+              <button @click="excluir(editora)">Excluir</button>
             </td>
           </tr>
         </tbody>

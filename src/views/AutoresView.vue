@@ -25,7 +25,7 @@ export default {
     async excluir(autor) {
       await axios.delete(`http://localhost:4000/autores/${autor.id}`);
       const indice = this.autores.indexOf(autor);
-      this.categorias.splice(indice, 1);
+      this.autores.splice(indice, 1);
     },
   },
 };

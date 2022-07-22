@@ -51,6 +51,7 @@ export default {
           <tr>
             <th>ID</th>
             <th>Descrição</th>
+            <th>Ações</th>
             <th></th>
           </tr>
         </thead>
@@ -60,7 +61,7 @@ export default {
             <td>{{ categoria.nome }}</td>
             <td>
               <button>Editar</button>
-              <button @click="excluir(categoria)">excluir</button>
+              <button @click="excluir(categoria)">Excluir</button>
             </td>
           </tr>
         </tbody>
